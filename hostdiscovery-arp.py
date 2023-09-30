@@ -37,10 +37,10 @@ def arp_scan(target_ip):
 
         print("ARP - Tarama Sonuçları:")
         for send, receive in answered:
-            ip_address = receive.src
-            mac_address = receive.psrc
+            ip_address = receive.psrc
+            mac_address = receive.src
             device_name = get_device_name(ip_address)
-            print("IP: {}  MAC: {}  Device Name: {}".format(receive.src, receive.psrc, device_name)) # Çıktıları yazdırdık
+            print("IP: {}  MAC: {}  Device Name: {}".format(ip_address, mac_address, device_name)) # Çıktıları yazdırdık
 
     except Exception as e:
         print("Hata oluştu: {}".format(str(e)))
