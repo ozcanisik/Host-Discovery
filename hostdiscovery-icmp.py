@@ -7,7 +7,7 @@ icmp_packet = ICMP()  # ICMP paketi oluşturduk
 
 ping_packet = ip_packet/icmp_packet  # Burada da ikisini birleştirip ping paketi oluşturduk
 
-address = input("Tarama yapılacak subneti giriniz (e.g., 10.10.10.): ") # Tarama yapılacak subneti kullanıcıdan istedik
+address = input("Tarama yapılacak subneti giriniz (örn: (10.10.10.): ") # Tarama yapılacak subneti kullanıcıdan istedik
 
 ipList = []
 
