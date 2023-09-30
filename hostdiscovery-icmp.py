@@ -7,11 +7,11 @@ icmp_packet = ICMP()  # ICMP paketi oluşturduk
 
 ping_packet = ip_packet/icmp_packet  # Burada da ikisini birleştirip ping paketi oluşturduk
 
-address = input("Tarama yapılacak subneti giriniz (örn: (10.10.10.): ") # Tarama yapılacak subneti kullanıcıdan istedik
+address = input("Tarama yapılacak subneti giriniz (örn: 10.10.10.): ") # Tarama yapılacak subneti kullanıcıdan istedik
 
 ipList = []
 
-for i in range(11):  # Burada da tek tek ip adreslerine ping attık ve eğer cevap dönerse bunu listeye kaydettik
+for i in range(1,256):  # Burada da tek tek ip adreslerine ping attık ve eğer cevap dönerse bunu listeye kaydettik
 	ping_packet[IP].dst = address + str(i)
 	response = sr1(ping_packet, timeout=0.5, verbose = False)
 	if(response):
@@ -19,4 +19,4 @@ for i in range(11):  # Burada da tek tek ip adreslerine ping attık ve eğer cev
 	else:
 		pass
 
-print(ipList)
+print("Tarama Sonuçları: " + str(ipList))
